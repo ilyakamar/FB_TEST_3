@@ -2,6 +2,7 @@ package com.loftblog.fb_test_3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,7 +48,7 @@ public class ListTasks extends AppCompatActivity {// Start ListTasks
             super(itemView);
 
             mTitleTask = (TextView)itemView.findViewById(R.id.tv_title_task);
-            mDel = (Button)itemView.findViewById(R.id.btn_del); ////////// btn_add ???????
+            mDel = (Button)itemView.findViewById(R.id.btn_del);
         }
     }
 
@@ -101,8 +103,26 @@ public class ListTasks extends AppCompatActivity {// Start ListTasks
        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_list_tasks) ;
 
         // budim peredavat danie4
-        FirebaseListAdapter<String,TaskViewHolder> adapter;
+        FirebaseRecyclerAdapter<String,TaskViewHolder> adapter;
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        adapter = new FirebaseRecyclerAdapter<String, TaskViewHolder>(String.class,R.layout.task_layout,TaskViewHolder.class,myRef.child(user.getUid()).child("Tasks")) {
+            @Override
+            protected void populateViewHolder(TaskViewHolder viewHolder, String title,final int position) {
+                viewHolder.mTitleTask.setText(title);
+                viewHolder.mDel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DatabaseReference itemRef = getRef(position);
+                        itemRef.removeValue();
+                    }
+                });
+            }
+        };
+
+        recyclerView.setAdapter(adapter);
 
     }//end onCreate
 
