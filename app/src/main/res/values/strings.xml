@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FB_TEST_3</string>
+
+
+    <string name="hint_email">email</string>
+    <string name="hint_password">password</string>
+    <string name="btn_login">login</string>
+    <string name="btn_link_to_register">link to register</string>
+</resources>

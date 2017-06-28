@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "44651856181",
+    "firebase_url": "https://fbtest3-54558.firebaseio.com",
+    "project_id": "fbtest3-54558",
+    "storage_bucket": "fbtest3-54558.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44651856181:android:f7bd35e495210de0",
+        "android_client_info": {
+          "package_name": "com.loftblog.fb_test_3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44651856181-s9o9dmd6nl0fd5clkctb3mhbqutmfimg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.loftblog.fb_test_3",
+            "certificate_hash": "182ee63f0a548a3746ec9f63a2695e8e7d303322"
+          }
+        },
+        {
+          "client_id": "44651856181-ahqmq3rhpnnue2bo4kcb37caden53eb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD12bTzmwJYn4QO4xYIoNpP7OQ5IqFGZNQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44651856181-ahqmq3rhpnnue2bo4kcb37caden53eb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
