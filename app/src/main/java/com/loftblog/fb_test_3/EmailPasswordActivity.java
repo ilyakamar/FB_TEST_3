@@ -44,7 +44,7 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
                 if (user != null) {
                     // User is signed in
 
-                    Intent intent = new Intent(EmailPasswordActivity.this, ListTasks.class);
+                    Intent intent = new Intent(EmailPasswordActivity.this, Main_MenuActivity.class);
                     startActivity(intent);
 
 
@@ -70,7 +70,7 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
 
-            Intent intent = new Intent(EmailPasswordActivity.this, ListTasks.class);
+            Intent intent = new Intent(EmailPasswordActivity.this, Main_MenuActivity.class);
             startActivity(intent);
 
         }
@@ -103,7 +103,7 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
                 if (task.isSuccessful()) {
                     Toast.makeText(EmailPasswordActivity.this, "Authorization is successful", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(EmailPasswordActivity.this, ListTasks.class);
+                    Intent intent = new Intent(EmailPasswordActivity.this, Main_MenuActivity.class);
                     startActivity(intent);
 
 

@@ -1,30 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_purple">
+    android:background="@android:color/holo_purple"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/main_image"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
         android:background="@drawable/logo1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+      android:layout_gravity="center" />
 
-    <EditText
-        android:id="@+id/editText_findCustomers"
-
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="הזן שם לקוח לחיפוש..."
-        android:ems="10"
-        android:layout_alignBottom="@+id/btn_findCustomers"
-        android:layout_toLeftOf="@+id/btn_findCustomers"
-        android:layout_toStartOf="@+id/btn_findCustomers" />
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center">
+
+
+
+        <EditText
+            android:id="@+id/editText_findCustomers"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="הזן שם לקוח לחיפוש..."
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/btn_findCustomers"
+
+            android:text="חיפוש"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/btn_newCustomer"
@@ -32,36 +50,30 @@
         android:text="הוספת לקוח חדש"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="87dp"
-        android:onClick="btnNewCustomer_Click"
-        android:layout_below="@+id/main_image"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="center" />
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list_customers"
+
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_above="@+id/btn_add"
+        android:layout_gravity="center">
+
+    </android.support.v7.widget.RecyclerView>
 
     <Button
-        android:id="@+id/btn_findCustomers"
-
-        android:text="חיפוש"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="35dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginTop="35dp"
-        android:onClick="btnFindCustomers_Click"
-        android:layout_below="@+id/main_image"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_back_toMain_menu"
 
         android:text="חזור"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
         android:textColor="#0033CC"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp" />
+        android:layout_gravity="center"/>
 
 
-</RelativeLayout>
+</LinearLayout>

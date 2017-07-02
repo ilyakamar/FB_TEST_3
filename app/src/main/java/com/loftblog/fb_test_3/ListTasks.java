@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -37,20 +38,20 @@ public class ListTasks extends AppCompatActivity {// Start ListTasks
     private Button btn_new_task; // ET_new_task
     private EditText et_new_task;// Btn_new_task
 
-   // ListView listViewUserTasks; // ListUserTasks
+    // ListView listViewUserTasks; // ListUserTasks
 
-    private static class TaskViewHolder extends RecyclerView.ViewHolder{
+    private static class TaskViewHolder extends RecyclerView.ViewHolder {// S TaskViewHolder
 
         TextView mTitleTask;
         Button mDel;
 
-        public TaskViewHolder(View itemView) {
+        public TaskViewHolder(View itemView) {// S TaskViewHolder constructor
             super(itemView);
 
-            mTitleTask = (TextView)itemView.findViewById(R.id.tv_title_task);
-            mDel = (Button)itemView.findViewById(R.id.btn_del);
-        }
-    }
+            mTitleTask = (TextView) itemView.findViewById(R.id.tv_title_task);
+            mDel = (Button) itemView.findViewById(R.id.btn_del);
+        }// end TaskViewHolder constructor
+    }// end TaskViewHolder
 
 
     @Override
@@ -58,7 +59,7 @@ public class ListTasks extends AppCompatActivity {// Start ListTasks
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_tasks);
 
-     //   listViewUserTasks = (ListView) findViewById(R.id.discr_for_task);
+        //   listViewUserTasks = (ListView) findViewById(R.id.discr_for_task);
 
         myRef = FirebaseDatabase.getInstance().getReference(); // initsialeziruem nashu silku na bazu danih
 
@@ -86,41 +87,54 @@ public class ListTasks extends AppCompatActivity {// Start ListTasks
         });
     */
 
-      // dabavleniya danih v firebase database
+        // dabavleniya danih v firebase database
         btn_new_task = (Button) findViewById(R.id.btn_add);
         et_new_task = (EditText) findViewById(R.id.et_new_tasks);
 
 
-
         btn_new_task.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
+
+
+                if (et_new_task.getText().toString().equals("")) {
+
+
+                    Toast.makeText(ListTasks.this, "צריך להזין משהו", Toast.LENGTH_SHORT).show();
+
+                }else
                 myRef.child(user.getUid()).
                         child("Tasks").
                         push().
                         setValue(et_new_task.getText().toString());
+
+
             }
+
         });
 
-       RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_list_tasks) ;
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_list_tasks);
 
         // budim peredavat danie4
-        FirebaseRecyclerAdapter<String,TaskViewHolder> adapter;
+        FirebaseRecyclerAdapter<String, TaskViewHolder> adapter;
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        adapter = new FirebaseRecyclerAdapter<String, TaskViewHolder>(String.class,R.layout.task_layout,TaskViewHolder.class,myRef.child(user.getUid()).child("Tasks")) {
+        adapter = new FirebaseRecyclerAdapter<String, TaskViewHolder>
+                (String.class, R.layout.task_layout, TaskViewHolder.class, myRef.child(user.getUid()).child("Tasks")) {
 
             @Override
-            protected void populateViewHolder(TaskViewHolder viewHolder, String title,final int position) {
+            protected void populateViewHolder(TaskViewHolder viewHolder, String title, final int position) {
                 viewHolder.mTitleTask.setText(title);
                 viewHolder.mDel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                            DatabaseReference itemRef = getRef(position);
-                            itemRef.removeValue();
+                        DatabaseReference itemRef = getRef(position);
+                        itemRef.removeValue();
 
 
                     }
