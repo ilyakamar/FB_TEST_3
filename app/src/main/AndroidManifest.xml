@@ -19,7 +19,8 @@
         <activity android:name=".ListTasks" />
         <activity android:name=".Customer" />
         <activity android:name=".NewCustomer" />
-        <activity android:name=".Main_MenuActivity"></activity>
+        <activity android:name=".Main_MenuActivity" />
+        <activity android:name=".DetailCustomerActivity"></activity>
     </application>
 
 </manifest>

@@ -83,6 +83,7 @@ private static class CustomerViewHolder extends RecyclerView.ViewHolder {// S Ta
 
             @Override
             protected void populateViewHolder(Customer.CustomerViewHolder viewHolder, String customerName, final int position) {
+
                 viewHolder.tv_customer_name.setText(customerName);
 
                 viewHolder.btn_del_customer.setOnClickListener(new View.OnClickListener() {
@@ -91,8 +92,15 @@ private static class CustomerViewHolder extends RecyclerView.ViewHolder {// S Ta
 
                         DatabaseReference itemRef = getRef(position);
                         itemRef.removeValue();
+                    }
+                });
 
-
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Customer.this,DetailCustomerActivity.class);
+                        intent.putExtra("Reference",getRef(position).getKey().toString());
+                        startActivity(intent);
                     }
                 });
             }
