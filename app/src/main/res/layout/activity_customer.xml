@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_purple">
+
+    <ImageView
+        android:id="@+id/main_image"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/editText_findCustomers"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="הזן שם לקוח לחיפוש..."
+        android:ems="10"
+        android:layout_alignBottom="@+id/btn_findCustomers"
+        android:layout_toLeftOf="@+id/btn_findCustomers"
+        android:layout_toStartOf="@+id/btn_findCustomers" />
+
+    <Button
+        android:id="@+id/btn_newCustomer"
+
+        android:text="הוספת לקוח חדש"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="87dp"
+        android:onClick="btnNewCustomer_Click"
+        android:layout_below="@+id/main_image"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_findCustomers"
+
+        android:text="חיפוש"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="35dp"
+        android:onClick="btnFindCustomers_Click"
+        android:layout_below="@+id/main_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btn_back"
+
+        android:text="חזור"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:textColor="#0033CC"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp" />
+
+
+</RelativeLayout>

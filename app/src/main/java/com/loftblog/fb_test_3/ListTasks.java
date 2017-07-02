@@ -54,7 +54,7 @@ public class ListTasks extends AppCompatActivity {// Start ListTasks
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {// S onCreate
+    protected void onCreate(Bundle savedInstanceState) {// Start onCreate
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_tasks);
 
@@ -90,6 +90,8 @@ public class ListTasks extends AppCompatActivity {// Start ListTasks
         btn_new_task = (Button) findViewById(R.id.btn_add);
         et_new_task = (EditText) findViewById(R.id.et_new_tasks);
 
+
+
         btn_new_task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,14 +111,18 @@ public class ListTasks extends AppCompatActivity {// Start ListTasks
         recyclerView.setHasFixedSize(true);
 
         adapter = new FirebaseRecyclerAdapter<String, TaskViewHolder>(String.class,R.layout.task_layout,TaskViewHolder.class,myRef.child(user.getUid()).child("Tasks")) {
+
             @Override
             protected void populateViewHolder(TaskViewHolder viewHolder, String title,final int position) {
                 viewHolder.mTitleTask.setText(title);
                 viewHolder.mDel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        DatabaseReference itemRef = getRef(position);
-                        itemRef.removeValue();
+
+                            DatabaseReference itemRef = getRef(position);
+                            itemRef.removeValue();
+
+
                     }
                 });
             }
