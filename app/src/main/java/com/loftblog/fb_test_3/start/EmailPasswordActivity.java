@@ -1,10 +1,9 @@
-package com.loftblog.fb_test_3;
+package com.loftblog.fb_test_3.start;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,6 +13,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.loftblog.fb_test_3.R;
 
 public class EmailPasswordActivity extends AppCompatActivity implements View.OnClickListener { // Start EmailPasswordActivity
 
@@ -67,7 +67,7 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
 
 
 
-        FirebaseUser user = mAuth.getCurrentUser();
+     FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
 
             Intent intent = new Intent(EmailPasswordActivity.this, Main_MenuActivity.class);

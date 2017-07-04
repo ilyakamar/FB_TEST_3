@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EmailPasswordActivity">
+        <activity android:name=".start.EmailPasswordActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListTasks" />
-        <activity android:name=".Customer" />
-        <activity android:name=".NewCustomer" />
-        <activity android:name=".Main_MenuActivity" />
-        <activity android:name=".DetailCustomerActivity"></activity>
+        <activity android:name=".customers.Customer" />
+        <activity android:name=".customers.NewCustomer" />
+        <activity android:name=".start.Main_MenuActivity" />
+        <activity android:name=".customers.DetailCustomerActivity"></activity>
     </application>
 
 </manifest>

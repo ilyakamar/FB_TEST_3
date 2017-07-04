@@ -1,10 +1,13 @@
-package com.loftblog.fb_test_3;
+package com.loftblog.fb_test_3.start;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.loftblog.fb_test_3.R;
+import com.loftblog.fb_test_3.customers.Customer;
 
 public class Main_MenuActivity extends AppCompatActivity implements View.OnClickListener{// Start Main_MenuActivity
 

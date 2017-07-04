@@ -1,4 +1,4 @@
-package com.loftblog.fb_test_3;
+package com.loftblog.fb_test_3.customers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.loftblog.fb_test_3.R;
 
 public class NewCustomer extends AppCompatActivity implements View.OnClickListener {// Start NewCustomer
 
